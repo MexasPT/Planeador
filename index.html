@@ -1,12 +1,123 @@
-<div class="justify-content-center align-items-center" style="padding-bottom:25px;">
-  <div style="padding-top: 20px; text-align:center;">
-    <div>
-      <h2>Planos de Rotinas</h2>
-      <h4>Complexo Aquático</h4>
-    </div>
-    
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>ViverSantarém App</title>
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'><link rel="stylesheet" href="./style.css">
 
+</head>
+
+
+<style>
+svg{
+  margin-left:5px;
+  margin-right:10px;
+  margin-top:0px;
+  width:40px;
+  height:40px;
+  
+  display:block;
+}
+#water #waveShape {
+  animation-name: waveAction01;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 2s;
+}
+
+@keyframes waveAction01 {
+  0% {
+    transform: translate(300px, -1830px);
+  }
+  100% {
+    transform: translate(102px, -1830px);
+  }
+}
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="211" height="211" viewBox="0 0 211 211">
+  <defs>
+    <clipPath id="clip-path">
+      <circle id="mask" cx="105.5" cy="105.5" r="105.5" transform="translate(312 -1822)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="circle" transform="translate(-312 1822)">
+    <g id="bg" transform="translate(312 -1822)" fill="#fff" stroke="#707070" stroke-width="1">
+      <circle cx="105.5" cy="105.5" r="105.5" stroke="none"/>
+      <circle cx="105.5" cy="105.5" r="105" fill="none"/>
+    </g>
+    <g id="water" clip-path="url(#clip-path)">
+      <path id="waveShape" d="M500,118.244v223.11H4V106.464c43.35,1.17,46.02,11.89,94.4,11.89,51.2,0,51.2-12,102.39-12s51.2,12,102.4,12,51.2-12,102.41-12C453.98,106.354,456.65,117.074,500,118.244Z" transform="translate(308 -1830.354)" fill="#04acff"/>
+    </g>
+  </g>
+</svg>
+
+
+  <a style="margin-right:50%;" class="navbar-brand" href="#">ViverSantarém</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="#">Plataforma </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Modelos</a><span class="sr-only">(current)</span>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="#">Manutenções</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Configurações
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Locais</a>
+          <a class="dropdown-item" href="#">Operações</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Instalações</a>
+        </div>
+      </li>
+
+    </ul>
+    
+  </div>
+</nav>
+
+
+
+
+
+
+<body>
+<!-- partial:index.partial.html -->
+<div class="justify-content-center align-items-center" style="padding-bottom:25px;">
+  <div style="padding-top: 50px; text-align:center;">
+    <div>
+      <h3>Modelo de Manutenção</h3>
+      <h4>Complexo Aquático / Piscinas Sacapeito</h4>
+    </div>
+   
 </div>
+
+<br>
+ <form class="needs-validation" novalidate action="" method="post">
+      <div class="form-row">
+        <div class="col-md-2 mb-3">
+          <label for="validationTooltip01">Nome do Modelo</label>
+          <input type="text" class="form-control" id="validationTooltip01" placeholder="" value="" required>
+        </div>
+        
+<button style="height:40px;margin:30px 0px 0px 50px;font-size:14px" class="btn btn-primary btn-sm" type="submit">Guardar  Modelo</button>
+ </div>
+
+</form>  
+
 
 <!-- DISPLAY USER SCHEDULER-->
 <div class="table-responsive">
@@ -336,5 +447,270 @@
     </div>
   </div>
 </div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.3.3/jscolor.min.js'></script>
 
 
+<script>
+// Drag tasks around
+$(".drag").draggable({
+  revert: "invalid",
+  start: function (e, ui) {
+    // Date from where task was dragged from
+    $(this).data("oldDate", $(this).parent().data("date"));
+  }
+});
+
+// Select drop area for Tasks (only droppable on TD which have "data-date" attribute)
+$("td[data-date]").droppable({
+  drop: function (e, ui) {
+    var drag = ui.draggable,
+      drop = $(this),
+      oldDate = drag.data("oldDate"), // Task date on drag
+      newDate = drop.data("date"), // Task date on drop
+      dragID = drag.data("userid"), // Task userid on drag
+      dropID = drop.data("userid"); // Task userid on drop
+    if (oldDate != newDate || dragID != dropID) {
+      $(drag).detach().css({ top: 0, left: 0 }).appendTo(drop);
+      $(drag).data("userid", dropID); // Update task userid
+    } else {
+      return $(drag).css({ top: 0, left: 0 }); // Return task to old position
+    }
+  }
+});
+
+// show EDIT and TRASH tools
+$(".drag").hover(
+  function () {
+    var isAdmin = 1; // Ability to hide or show edit and delete options
+    if (isAdmin == 1) {
+      $(this)
+        .css("z-index", "999")
+        .prepend(
+          '<div class="opt-tools"><div class="opt-edit"><i class="fas fa-pen"></i></div><div class="opt-trash"><i class="fas fa-trash"></i></div></div>'
+        );
+    }
+  },
+  function () {
+    //When mouse hovers out DIV remove tools
+    $(this).css("z-index", "0").find(".opt-tools").remove();
+  }
+);
+
+// Show modal to edit task
+$(document).on("click", ".opt-edit", function () {
+  // Get task ID and DATE from DATA attribute
+  var taskid = $(this).parent().parent().data("taskid"),
+    userid = $(this).parent().parent().data("userid");
+  // Get DATE
+  var date = $(this).closest("td").data("date");
+  // insert data to Modal
+  $("#ktxt")[0].jscolor.fromString("FFFFFF");
+  $("#kbg")[0].jscolor.fromString("8E8E8E");
+  $("#demotaak2").css("color", "#FFFFFF");
+  $("#demotaak1").css("border-left-color", "#8E8E8E");
+  $("#demotaak2").css("background-color", "#8E8E8E");
+  $("#edittask").modal("show");
+});
+
+// Modal remove task ?
+$(document).on("click", ".opt-trash", function () {
+  var taskid = $(this).parent().parent().data("taskid");
+
+  $("#taskdelid").val(taskid);
+  $("#modal-delete").html(
+    "Tem a certeza que pretende eliminar o ID <b>" + taskid + "</b>?"
+  );
+  $("#deletetask").modal("show");
+});
+
+// Remove task after conformation
+$(document).on("click", "#confdelete", function () {
+  var taskid = $("#taskdelid").val();
+  $("div")
+    .find("[data-taskid=" + taskid + "]")
+    .remove();
+  $("#deletetask").modal("hide");
+});
+
+function changeColor(id, c) {
+  if (id == "ctxt") {
+    $("#demotaak2").css("color", "#" + c);
+  } else if (id == "cbg") {
+    $("#demotaak1").css("border-left-color", "#" + c);
+    $("#demotaak2").css("background-color", "#" + c);
+  }
+  return false;
+}
+
+
+
+
+
+
+
+
+
+// Seleciona os elementos da Tab "Locais"
+const tabLocais = document.querySelector('.tab-locais');  // A tab "Locais"
+const dropZone = document.querySelector('.drop-zone');  // O alvo onde a tab será movida
+
+// Evento de dragstart para armazenar os dados da tab "Locais" sem removê-los
+tabLocais.addEventListener('dragstart', (event) => {
+    // Guarda o conteúdo HTML da tab "Locais" no dataTransfer
+    event.dataTransfer.setData('text', tabLocais.innerHTML);
+    // Altera a opacidade da tab para mostrar que está sendo arrastada
+    event.target.style.opacity = '0.5';
+});
+
+// Evento de dragend para restaurar a opacidade após o drag
+tabLocais.addEventListener('dragend', (event) => {
+    // Restaura a opacidade da tab "Locais" após o arraste
+    event.target.style.opacity = '1';
+});
+
+// Permitir o drop ao adicionar um evento de dragover no alvo de drop
+dropZone.addEventListener('dragover', (event) => {
+    // Previne o comportamento padrão para permitir o drop
+    event.preventDefault();
+});
+
+// Evento de drop para copiar o conteúdo da tab "Locais"
+dropZone.addEventListener('drop', (event) => {
+    // Previne o comportamento padrão do drop
+    event.preventDefault();
+    // Obtém os dados (HTML da tab "Locais") que foram armazenados no dragstart
+    const data = event.dataTransfer.getData('text');
+    // Adiciona os dados copiados no local de drop (alvo)
+    dropZone.innerHTML += data;
+});
+
+
+</script>
+
+<script>
+// Drag tasks around
+$(".drag").draggable({
+  revert: "invalid",
+  start: function (e, ui) {
+    // Date from where task was dragged from
+    $(this).data("oldDate", $(this).parent().data("date"));
+  }
+});
+
+// Select drop area for Tasks (only droppable on TD which have "data-date" attribute)
+$("td[data-date]").droppable({
+  drop: function (e, ui) {
+    var drag = ui.draggable,
+      drop = $(this),
+      oldDate = drag.data("oldDate"), // Task date on drag
+      newDate = drop.data("date"), // Task date on drop
+      dragID = drag.data("userid"), // Task userid on drag
+      dropID = drop.data("userid"); // Task userid on drop
+    if (oldDate != newDate || dragID != dropID) {
+      $(drag).detach().css({ top: 0, left: 0 }).appendTo(drop);
+      $(drag).data("userid", dropID); // Update task userid
+    } else {
+      return $(drag).css({ top: 0, left: 0 }); // Return task to old position
+    }
+  }
+});
+
+// show EDIT and TRASH tools
+$(".drag").hover(
+  function () {
+    var isAdmin = 1; // Ability to hide or show edit and delete options
+    if (isAdmin == 1) {
+      $(this)
+        .css("z-index", "999")
+        .prepend(
+          '<div class="opt-tools"><div class="opt-edit"><i class="fas fa-pen"></i></div><div class="opt-trash"><i class="fas fa-trash"></i></div></div>'
+        );
+    }
+  },
+  function () {
+    //When mouse hovers out DIV remove tools
+    $(this).css("z-index", "0").find(".opt-tools").remove();
+  }
+);
+
+// Show modal to edit task
+$(document).on("click", ".opt-edit", function () {
+  // Get task ID and DATE from DATA attribute
+  var taskid = $(this).parent().parent().data("taskid"),
+    userid = $(this).parent().parent().data("userid");
+  // Get DATE
+  var date = $(this).closest("td").data("date");
+  // insert data to Modal
+  $("#ktxt")[0].jscolor.fromString("FFFFFF");
+  $("#kbg")[0].jscolor.fromString("8E8E8E");
+  $("#demotaak2").css("color", "#FFFFFF");
+  $("#demotaak1").css("border-left-color", "#8E8E8E");
+  $("#demotaak2").css("background-color", "#8E8E8E");
+  $("#edittask").modal("show");
+});
+
+// Modal remove task ?
+$(document).on("click", ".opt-trash", function () {
+  var taskid = $(this).parent().parent().data("taskid");
+
+  $("#taskdelid").val(taskid);
+  $("#modal-delete").html(
+    "Tem a certeza que pretende eliminar o ID <b>" + taskid + "</b>?"
+  );
+  $("#deletetask").modal("show");
+});
+
+// Remove task after conformation
+$(document).on("click", "#confdelete", function () {
+  var taskid = $("#taskdelid").val();
+  $("div")
+    .find("[data-taskid=" + taskid + "]")
+    .remove();
+  $("#deletetask").modal("hide");
+});
+
+function changeColor(id, c) {
+  if (id == "ctxt") {
+    $("#demotaak2").css("color", "#" + c);
+  } else if (id == "cbg") {
+    $("#demotaak1").css("border-left-color", "#" + c);
+    $("#demotaak2").css("background-color", "#" + c);
+  }
+  return false;
+}
+
+
+
+
+
+
+
+
+
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
+
+
+</body>
+</html>
